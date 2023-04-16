@@ -26,31 +26,14 @@ public class ForgotPasswordSteps {
         forgotPasswordPage.iSeePasswordRecoveryText();
     }
 
-    @When("I fill the email field")
+    @When("I fill the email field with {}")
     public void iFillTheEmailField(String email) {
         forgotPasswordPage.fillEmailData(email);
     }
 
-    @When("I click on send button")
-    public void iClickSendBtn() {
+    @Then("I see {}")
+    public void iSeeMsg(String msg) {
         forgotPasswordPage.clickOnSendBtnFPP();
-    }
-
-    @Then("I see {} invalid format")
-    public void iSeeInvalidFormatError(String msg) {
-        forgotPasswordPage.clickOnSendBtnFPP();
-        forgotPasswordPage.iSeeInvalidFormatError(msg);
-    }
-
-    @Then("I see {} user does not exist")
-    public void iSeeUserDoesNotExistError(String msg) {
-        forgotPasswordPage.clickOnSendBtnFPP();
-        forgotPasswordPage.iSeeUserDoesNotExistError(msg);
-    }
-
-    @Then("I see {} instructions sent")
-    public void iSeeInstructionsSentMsg(String msg) {
-        forgotPasswordPage.clickOnSendBtnFPP();
-        forgotPasswordPage.iSeeInstructionsSentMsg(msg);
+        forgotPasswordPage.iSeeMsg(msg);
     }
 }

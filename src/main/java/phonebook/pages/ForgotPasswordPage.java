@@ -30,15 +30,20 @@ public class ForgotPasswordPage {
         $(emailFieldFPP).setValue(email);
     }
 
-    public void iSeeInvalidFormatError(String msg) {
-        $(invalidEmailFormatAlert).shouldHave(text(msg));
+    public void iSeeMsg(String msg) {
+        boolean invalidEmailFormat = msg.contains("valid email");
+        boolean userDoesNotExist = msg.contains("user doesn't exist");
+        boolean instructionsSent = msg.contains("instructions");
+        if (invalidEmailFormat) {
+            alertShouldHaveText(invalidEmailFormatAlert, msg);
+        } else if (userDoesNotExist) {
+            alertShouldHaveText(userDoesNotExistAlert, msg);
+        } else if (instructionsSent) {
+            alertShouldHaveText(instructionsSentMsg, msg);
+        }
     }
 
-    public void iSeeUserDoesNotExistError(String msg) {
-        $(userDoesNotExistAlert).shouldHave(text(msg));
-    }
-
-    public void iSeeInstructionsSentMsg(String msg) {
-        $(instructionsSentMsg).shouldHave(text(msg));
+    private void alertShouldHaveText(By alert, String msg) {
+        $(alert).shouldHave(text(msg));
     }
 }
