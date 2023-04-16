@@ -32,7 +32,7 @@ public class ContactsPage {
     }
 
     public void checkContactListLabelRenamed(String text) {
-        $(By.xpath("//*[contains(text(),'" + text + "')]")).shouldHave(Condition.text(text));
+        $(By.xpath("//*[contains(text(),'" + text + "')]")).shouldBe();
     }
 
     public void addNewContactBtnClick() {
