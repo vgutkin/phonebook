@@ -39,12 +39,4 @@ public class ContactsSteps extends BaseSteps {
     public void iSeeContactInfo() {
         contactsPage.iSeeContactInfoPanel();
     }
-
-    @Given("I am logged in")
-    public void iAmLoggedIn() {
-        open(LOGIN_URL);
-        loginPage.enterUserName();
-        loginPage.enterPassword();
-        loginPage.loginButtonClick();
-    }
 }

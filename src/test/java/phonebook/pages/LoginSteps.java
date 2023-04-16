@@ -15,6 +15,14 @@ public class LoginSteps extends BaseSteps {
         open(LOGIN_URL);
     }
 
+    @Given("I am logged in")
+    public void iAmLoggedIn() {
+        open(LOGIN_URL);
+        loginPage.enterUserName();
+        loginPage.enterPassword();
+        loginPage.loginButtonClick();
+    }
+
     @When("I input {} invalid email")
     public void iInputInvalidEmailInvalidEmail(String email) {
         loginPage.inputInvalidEmail((email));
