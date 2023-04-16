@@ -6,7 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import static com.codeborne.selenide.Selenide.open;
-import static phonebook.Constants.LOGIN_URL;
+import static phonebook.Constants.*;
 
 public class LoginSteps extends BaseSteps {
 
@@ -18,14 +18,14 @@ public class LoginSteps extends BaseSteps {
     @Given("I am logged in")
     public void iAmLoggedIn() {
         open(LOGIN_URL);
-        loginPage.enterUserName();
-        loginPage.enterPassword();
+        loginPage.enterEmail(USER_EMAIL);
+        loginPage.enterPassword(USER_PASSWORD);
         loginPage.loginButtonClick();
     }
 
     @When("I input {} invalid email")
     public void iInputInvalidEmailInvalidEmail(String email) {
-        loginPage.inputInvalidEmail((email));
+        loginPage.enterEmail((email));
     }
 
     @Then("I see error message")
@@ -36,7 +36,7 @@ public class LoginSteps extends BaseSteps {
 
     @When("I input {} invalid password")
     public void iInputInvalidPassword(String password) {
-        loginPage.inputInvalidPassword(password);
+        loginPage.enterPassword(password);
     }
 
     @Then("I see {} error message")

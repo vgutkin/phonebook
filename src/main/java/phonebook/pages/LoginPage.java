@@ -25,8 +25,12 @@ public class LoginPage {
 
 
     //methods
-    public void inputInvalidEmail(String email) {
+    public void enterEmail(String email) {
         $(emailField).setValue(email);
+    }
+
+    public void enterPassword(String password) {
+        $(passwordField).setValue(password);
     }
 
     public void seeErrorMessage(String text) {
@@ -50,22 +54,9 @@ public class LoginPage {
         $(locator).shouldHave(Condition.text(text));
     }
 
-
-    public void inputInvalidPassword(String password) {
-        $(passwordField).setValue(password);
-    }
-
     public ForgotPasswordPage clickOnForgotPassword() {
         $(forgotPasswordLP).click();
         return page(ForgotPasswordPage.class);
-    }
-
-    public void enterUserName() {
-        $(emailField).setValue(USER_EMAIL);
-    }
-
-    public void enterPassword() {
-        $(passwordField).setValue(USER_PASSWORD);
     }
 
     public ContactsPage loginButtonClick() {
