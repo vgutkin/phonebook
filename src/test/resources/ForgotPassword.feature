@@ -7,7 +7,7 @@ Feature: Forgot password page
   @Tests
   Scenario Outline: Forgot password tests
     When I fill the email field with <email>
-    Then I see <Error Message>
+    Then I see msg <Error Message>
     Examples:
       | email          | Error Message                                                    |
       | some_email     | Email must be a valid email address.                             |
