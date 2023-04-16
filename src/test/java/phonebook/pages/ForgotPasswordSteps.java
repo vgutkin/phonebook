@@ -31,7 +31,7 @@ public class ForgotPasswordSteps {
         forgotPasswordPage.fillEmailData(email);
     }
 
-    @Then("I see {}")
+    @Then("I see msg {}")
     public void iSeeMsg(String msg) {
         forgotPasswordPage.clickOnSendBtnFPP();
         forgotPasswordPage.iSeeMsg(msg);
