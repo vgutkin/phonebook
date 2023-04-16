@@ -9,13 +9,9 @@ import static phonebook.Constants.LOGIN_URL;
 
 public class ContactsSteps extends BaseSteps {
 
-    @When("I click on language drop down")
-    public void iClickOnLanguageDropDown() {
-        contactsPage.languageDropDownClick();
-    }
-
     @When("I click on {} language")
     public void iClickOnLanguage(String language) {
+        contactsPage.languageDropDownClick();
         contactsPage.languageClick(language);
     }
 
