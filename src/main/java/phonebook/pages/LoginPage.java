@@ -2,11 +2,10 @@ package phonebook.pages;
 
 import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;
+import phonebook.Constants;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.page;
-import static phonebook.Constants.USER_EMAIL;
-import static phonebook.Constants.USER_PASSWORD;
 
 /**
  * This class contains all Login page locators and methods.
@@ -25,12 +24,17 @@ public class LoginPage {
 
 
     //methods
-    public void enterEmail(String email) {
-        $(emailField).setValue(email);
-    }
-
-    public void enterPassword(String password) {
-        $(passwordField).setValue(password);
+    public void fillInField(Constants.FieldType fieldType, String value) {
+        switch (fieldType) {
+            case EMAIL:
+                $(emailField).setValue(value);
+                break;
+            case PASSWORD:
+                $(passwordField).setValue(value);
+                break;
+            default:
+                break;
+        }
     }
 
     public void seeErrorMessage(String text) {

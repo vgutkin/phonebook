@@ -11,4 +11,9 @@ public class Constants {
     //test credentials
     public static String USER_EMAIL = "test@gmail.com";
     public static String USER_PASSWORD = "test@gmail.com";
+
+    public static enum FieldType {
+        EMAIL,
+        PASSWORD
+    }
 }

@@ -1,6 +1,5 @@
 package phonebook.pages;
 
-import io.cucumber.docstring.DocString;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -16,30 +15,24 @@ public class LoginSteps extends BaseSteps {
     }
 
     @Given("I am logged in")
-    public void iAmLoggedIn() {
+    public ContactsPage iAmLoggedIn() {
         open(LOGIN_URL);
-        loginPage.enterEmail(USER_EMAIL);
-        loginPage.enterPassword(USER_PASSWORD);
-        loginPage.loginButtonClick();
+        loginPage.fillInField(FieldType.EMAIL, USER_EMAIL);
+        loginPage.fillInField(FieldType.PASSWORD, USER_PASSWORD);
+        return loginPage.loginButtonClick();
     }
 
     @When("I input {} invalid email")
-    public void iInputInvalidEmailInvalidEmail(String email) {
-        loginPage.enterEmail((email));
-    }
-
-    @Then("I see error message")
-    public void iSeeStaticErrorMessage(DocString text) {
-        String message = text.getContent();
-        loginPage.seeErrorMessage(message);
+    public void iInputInvalidEmail(String email) {
+        loginPage.fillInField(FieldType.EMAIL, email);
     }
 
     @When("I input {} invalid password")
     public void iInputInvalidPassword(String password) {
-        loginPage.enterPassword(password);
+        loginPage.fillInField(FieldType.PASSWORD, password);
     }
 
-    @Then("I see {} error message")
+    @Then("I see error message {}")
     public void iSeeErrorMessage(String msg) {
         loginPage.seeErrorMessage(msg);
     }

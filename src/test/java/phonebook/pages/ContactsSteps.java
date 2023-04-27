@@ -15,7 +15,7 @@ public class ContactsSteps extends BaseSteps {
         contactsPage.languageClick(language);
     }
 
-    @Then("I see {} contact list label renamed")
+    @Then("I see contact list label renamed to {}")
     public void iSeeContactListLabelRenamed(String language) {
         contactsPage.checkContactListLabelRenamed(language);
     }

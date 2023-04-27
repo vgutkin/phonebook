@@ -6,7 +6,7 @@ Feature: Contacts page
   @ChangeLanguage
   Scenario Outline: Language changed
     When I click on <language> language
-    Then I see <label> contact list label renamed
+    Then I see contact list label renamed to <label>
 
     Examples:
       | language | label            |

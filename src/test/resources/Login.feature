@@ -5,10 +5,7 @@ Feature: Login Page
 
   Scenario Outline: Input invalid email
     When I input <invalid email> invalid email
-    Then I see error message
-    """
-    Email must be a valid email address.
-    """
+    Then I see error message Email must be a valid email address.
     Examples:
       | invalid email  |
       | test@          |
@@ -22,7 +19,7 @@ Feature: Login Page
 
   Scenario Outline: Password length unacceptable
     When I input <password> invalid password
-    Then I see <error> error message
+    Then I see error message <error>
     Examples:
       | password               | error                                          |
       | *                      | Password must be at least 8 characters.        |
